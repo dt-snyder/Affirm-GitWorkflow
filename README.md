@@ -1,31 +1,31 @@
-# Salesforce DX Project: Next Steps
+# Salesforce DX Project with Affirm CI/CD
 
-Now that you’ve created a Salesforce DX project, what’s next? Here are some documentation resources to get you started.
+Example repo that uses `sfdx-cli` and `sfdx-affirm` to validate and deploy features to specific instances of salesforce.
 
-## How Do You Plan to Deploy Your Changes?
+## Resources
 
-Do you want to deploy a set of changes, or create a self-contained application? Choose a [development model](https://developer.salesforce.com/tools/vscode/en/user-guide/development-models).
+Below are some helpful resources that you should already understand before getting much further into using something like what's shown here. Take some time to understand SFDX-CLI, GIT, and the commands that SFDX-Affirm has.
 
-## Configure Your Salesforce DX Project
-
-The `sfdx-project.json` file contains useful configuration information for your project. See [Salesforce DX Project Configuration](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_config.htm) in the _Salesforce DX Developer Guide_ for details about this file.
-
-## Read All About It
+### SFDX-CLI Resources
 
 - [Salesforce Extensions Documentation](https://developer.salesforce.com/tools/vscode/)
 - [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 - [Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm)
 - [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference.htm)
 
+### SFDX-AFFIRM Resources
+
+- [SFDX-AFFIRM](https://www.npmjs.com/package/sfdx-affirm)
+
 ## Setting up Git Workflow In Your Repo
 
 If you're interested in using this flow for your development this section will help you get started.
 
-## Creating Secrets
+### Creating Secrets
 
 Most of the setup you'll need to do is in this section. In order for the workflows to do their thing and validate/deploy to your Salesforce instances it needs to have access to your instances. The number of instances and workflows you create for your team will tell you how many times you need to repeat these steps. This section details all the steps you need to complete to get authenticated.
 
-**Overview**
+#### Overview
 
 1. Create self-signed Cert for use in Salesforce Connected app
 2. Create a Connected App In Salesforce

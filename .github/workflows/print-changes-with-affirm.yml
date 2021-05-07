@@ -1,7 +1,7 @@
-name: affirm-git-workflow
-on: [push]
+name: print-changes-with-affirm
+on: workflow_dispatch
 jobs:
-  validate-feature-branch:
+  print-changes-with-affirm:
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
@@ -22,7 +22,3 @@ jobs:
       - run: ./.github/scripts/trust_affirm.sh
       - run: sfdx plugins:install sfdx-affirm
       - run: sfdx affirm:changes -b remotes/origin/main
-      - run: sfdx affirm:parcel -b remotes/origin/main
-      - run: sfdx affirm:quality -u $SFDX_UN -r -s
-        env:
-            SFDX_UN: ${{ secrets.SFDX_UN }}
