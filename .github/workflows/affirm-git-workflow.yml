@@ -1,0 +1,17 @@
+name: affirm-git-workflow
+on: [push]
+jobs:
+  print-changes-with-affirm:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+      - run: gpg --version
+      - run: chmod +x ./.github/scripts/decrypt_secret.sh
+      - run: ./.github/scripts/decrypt_secret.sh
+      - run: npm install sfdx-cli --global
+      - run: sfdx force:auth:jwt:grant --clientid $SFDX_CLIENT_ID --username $SFDX_UN --jwtkeyfile $HOME/secrets/server.key -s --instanceurl $SFDX_URL
+      - run: mkdir $HOME/.config/sfdx
+      - run: mv ./config/sfdx/unsignedPluginAllowList.json $HOME/.config/sfdx
+      - run: sfdx plugins:install sfdx-affirm
+      - run: sfdx affirm:changes

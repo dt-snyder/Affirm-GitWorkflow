@@ -15,6 +15,9 @@ coverage/
 # SOQL Query Results
 **/scripts/soql/query-results
 
+# default location of release packages for Affirm
+.releaseArtifacts/
+
 # Logs
 logs
 *.log
