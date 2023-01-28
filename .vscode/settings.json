@@ -4,5 +4,31 @@
     "**/bower_components": true,
     "**/.sfdx": true,
     "**/releaseArtifacts": true
-  }
+  },
+  "SFDoc.EnableForLightningJavascript": true,
+  "SFDoc.IncludeModificationLogScaffoldInFileHeader": true,
+  "SFDoc.IncludParameterTypeInMethodHeader": false,
+  "SFDoc.FileHeaderProperties": [
+    {
+      "name": "description"
+    },
+    {
+      "name": "coverage"
+    },
+    {
+      "name": "author",
+      "defaultValue": "$username"
+    },
+    {
+      "name": "group"
+    },
+    {
+      "name": "last modified on",
+      "defaultValue": "$date"
+    },
+    {
+      "name": "last modified by",
+      "defaultValue": "$username"
+    }
+  ]
 }
