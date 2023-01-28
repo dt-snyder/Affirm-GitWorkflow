@@ -1,1 +1,1 @@
-{"primaryBranch":"remotes/origin/main","buildDirectory":"releaseArtifacts","packageDirectory":"parcel","waitTime":"10"}
+{"primaryBranch":"remotes/origin/main","buildDirectory":"releaseArtifacts","packageDirectory":"parcel","waitTime":"10","affirmDirectory":"releaseArtifacts","packageName":"parcel","defaultBuildDirectory":"releaseArtifacts/packages/parcel","buildSubDirectory":"releaseArtifacts/packages","testSubDirectory":"releaseArtifacts/testResults","auditSubDirectory":"releaseArtifacts/auditResults","qualitySubDirectory":"releaseArtifacts/validationResults"}
