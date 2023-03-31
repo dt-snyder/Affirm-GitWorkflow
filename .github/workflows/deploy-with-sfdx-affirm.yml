@@ -1,0 +1,28 @@
+name: deploy-with-sfdx-affirm
+on: workflow_dispatch
+jobs:
+  deploy-with-sfdx-affirm:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v1
+      - run: chmod +x ./.github/scripts/decrypt_secret.sh
+      - run: ./.github/scripts/decrypt_secret.sh
+        env:
+          SFDX_JWT_PASS: ${{ secrets.SFDX_JWT_PASS }}
+      - run: npm install sfdx-cli --global
+      - run: sfdx force:auth:jwt:grant --clientid $SFDX_CLIENT_ID --username $SFDX_UN --jwtkeyfile $HOME/secrets/server.key -s --instanceurl $SFDX_URL
+        env:
+            SFDX_CLIENT_ID: ${{ secrets.SFDX_CLIENT_ID }}
+            SFDX_UN: ${{ secrets.SFDX_UN }}
+            SFDX_URL: ${{ secrets.SFDX_URL }}
+      - run: chmod +x ./.github/scripts/trust_affirm.sh
+      - run: ./.github/scripts/trust_affirm.sh
+      - run: sfdx plugins:install sfdx-affirm
+      - run: sfdx affirm:changes
+      - run: sfdx affirm:parcel
+      - run: sfdx affirm:place -u $SFDX_UN -r -s
+        env:
+            SFDX_UN: ${{ secrets.SFDX_UN }}
