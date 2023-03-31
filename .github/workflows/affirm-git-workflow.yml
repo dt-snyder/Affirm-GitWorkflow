@@ -2,7 +2,7 @@ name: affirm-git-workflow
 on: [push]
 jobs:
   validate-feature-branch:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
         with:

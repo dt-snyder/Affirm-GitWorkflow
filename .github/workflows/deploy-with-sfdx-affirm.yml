@@ -2,7 +2,7 @@ name: deploy-with-sfdx-affirm
 on: workflow_dispatch
 jobs:
   deploy-with-sfdx-affirm:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
         with:
