@@ -34,15 +34,15 @@ Most of the setup you'll need to do is in this section. In order for the workflo
 
 ### Create a self-signed cert & encrypt it
 
-The first step is to make your Private Key and Self-Signed Digital Certificate. This guide from the (Salesforce DX Developer Guide will get you where you need to be.)[https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_auth_key_and_cert.htm] 
+The first step is to make your Private Key and Self-Signed Digital Certificate. This guide from the [Salesforce DX Developer Guide will get you where you need to be.](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_auth_key_and_cert.htm)
 
 The goal here is to have a private `server.key` file and to enter the value returned in step five of the guide into the `Digital Certificate` field of your connected app. Save the `Digital Certificate` somewhere for use in the Create Connected App section.
 
-We now need to encrypt our `server.key` file so it can be safely committed to the repo. I used (this guide from GitHub)[https://docs.github.com/en/actions/reference/encrypted-secrets#using-encrypted-secrets-in-a-workflow] to get this done and the `decrypt_secret.sh` is directly from there. Like they say, remember the pass phrase you use as we will need it in the last section of this guide.
+We now need to encrypt our `server.key` file so it can be safely committed to the repo. I used [this guide from GitHub](https://docs.github.com/en/actions/reference/encrypted-secrets#using-encrypted-secrets-in-a-workflow) to get this done and the `decrypt_secret.sh` is directly from there. Like they say, remember the pass phrase you use as we will need it in the last section of this guide.
 
 ### Create Connected App
 
-Log into your salesforce instance and create a connected app. This guide, (Authorize an Org Using the JWT Bearer Flow)[https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_auth_jwt_flow.htm], is a good place to start but doesn't really cover all the details of creating the connected app; to save you some time my recommended settings are below (if it's not listed it's not important).
+Log into your salesforce instance and create a connected app. This guide, [Authorize an Org Using the JWT Bearer Flow](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_auth_jwt_flow.htm), is a good place to start but doesn't really cover all the details of creating the connected app; to save you some time my recommended settings are below (if it's not listed it's not important).
 
 - API Name: give it a name (idc)
 - Enable for Device Flow: true (used the callback url they drop in there for you)

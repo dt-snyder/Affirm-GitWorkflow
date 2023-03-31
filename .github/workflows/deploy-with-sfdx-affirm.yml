@@ -1,7 +1,7 @@
-name: print-changes-with-affirm
+name: deploy-with-sfdx-affirm
 on: workflow_dispatch
 jobs:
-  print-changes-with-affirm:
+  deploy-with-sfdx-affirm:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -24,3 +24,7 @@ jobs:
       - run: ./.github/scripts/trust_affirm.sh
       - run: sfdx plugins:install sfdx-affirm
       - run: sfdx affirm:changes
+      - run: sfdx affirm:parcel
+      - run: sfdx affirm:place -u $SFDX_UN -r -s
+        env:
+            SFDX_UN: ${{ secrets.SFDX_UN }}
