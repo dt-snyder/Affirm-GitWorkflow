@@ -21,4 +21,4 @@ jobs:
       - run: chmod +x ./.github/scripts/trust_affirm.sh
       - run: ./.github/scripts/trust_affirm.sh
       - run: sfdx plugins:install sfdx-affirm
-      - run: sfdx affirm:changes -b remotes/origin/main
+      - run: sfdx affirm:changes
